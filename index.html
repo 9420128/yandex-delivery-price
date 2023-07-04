@@ -1,0 +1,78 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Расчет стоимости доставки</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <meta name="theme-color" content="#fafafa">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=e90d6711-b432-4915-be66-2183ac7d21c8" type="text/javascript"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Расчет стоимости доставки</h1>
+    <p>
+        Стоимость за 1 км - 45 руб;<br>
+        Стоимость доставки по умолчанию - 1200 руб (если длина маршрута умноженная на стоимость за 1 км больше, тогда выводится большее значение);<br>
+        Максимальная длина маршрута - 300 км;<br>
+        Стартовая точка маршрута - "Ленинградская область, Всеволожский район, дорога на Новосергеевку, д1";
+    </p>
+    <div
+            id="viewContainer"
+            data-delivery-tariff="45"
+            data-delivery="1200"
+            data-route-max="300"
+            data-storage="Ленинградская область, Всеволожский район, дорога на Новосергеевку, д1"
+    >
+        <span id="message">&nbsp;</span>
+    </div>
+
+    <div class="question-form-inputs custom">
+        <label class="relative">
+            <div class="tooltips error" id="tooltipError"></div>
+            <div class="inline">
+        <textarea
+                type="text"
+                placeholder="Введите адрес"
+                name="address"
+                class="textarea__btn"
+                id="suggest"
+        ></textarea>
+                <button class="btn btn__dark form-icon" id="suggestSubmit">
+                    <i class="material-icons" delivery-icon>swap_calls</i>
+                </button>
+            </div>
+        </label>
+    </div>
+    <div class="map-wrap">
+        <div id="map"></div>
+        <div id="mapHidden"></div>
+    </div>
+</div>
+
+<script src="js/main.js"></script>
+
+</body>
+
+</html>
